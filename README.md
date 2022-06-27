@@ -10,7 +10,6 @@ Crear una aplicación web para el Cementerio Municipal de Punta Arenas.
 <p>La función secundaria de la aplicación será informativa, tendrá un obituario con las ultimas defunciones y un pequeño blog de noticias relacionadas al cementerio, y a la misma aplicación web.</p>
 <br>
 <p>La aplicación web debe contar con un apartado administrativo secreto, desde el cual se manejaran las siguiente funciones:</p>
-<br>
 
 - Añadir o modificar registros de las personas fallecidas con sus nombres, apellidos, rut, fechas de nacimiento, defuncion, entierro y relocalizacion (si aplica), su ubicación en el cementerio (si aplica) y conmemoraciones.
 
