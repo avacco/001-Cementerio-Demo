@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Demo de proyecto personal 'Cementerio Municipal'" />
+        <meta name="author" content="Andres Vargas" />
+        <title>Cementerio Municipal</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+		<link href="css/styles.css" rel="stylesheet" />
+		<link id="theme" class="day" href="css/day.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navegacion-->
+        <nav data-th-replace="include/nav :: nav"></nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/contacto.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Contáctanos</h1>
+                            <span class="subheading">Resolveremos tus dudas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Contenido principal -->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Rellena con tus datos y déjanos un mensaje. Responderemos tan pronto como podamos.</p>
+                        <div class="my-5">
+                            <form id="contactForm">
+                                <div class="form-floating">
+                                    <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre" data-sb-validations="required" />
+                                    <label for="name">Nombre</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">Requiere un nombre.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="email" type="email" placeholder="Ingresa tu correo" data-sb-validations="required,email" />
+                                    <label for="email">Correo</label>
+                                    <div class="invalid-feedback">Requiere un correo valido.</div>
+                                    <div class="invalid-feedback">Correo invalido</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" placeholder="Ingresa tu mensaje" style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Mensaje</label>
+                                    <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
+                                </div>
+                                <br />
+                                <!-- Submit-->
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+               <!-- Pie de pagina -->
+        <footer data-th-replace="include/footer :: footer"></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

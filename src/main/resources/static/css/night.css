@@ -1,0 +1,56 @@
+body{
+  color: white;
+    background-color: #212529;
+}
+.post-preview > a {
+    color: yellow;
+}
+
+a{
+  color: white;
+}
+.svg-inline--fa{
+  color: black;
+}
+.fa-behance{
+  color: white;
+}
+
+.fa-linkedin{
+  color: white;
+}
+
+.fa-github{
+  color: white;
+}
+
+.text-muted{
+  color: #cfcfcf!important;
+}
+
+#mainNav.is-visible{
+  background-color: rgba(33,37,41, 0.9);
+}
+
+#mainNav.is-fixed .navbar-brand{
+    color: white;
+}
+
+#mainNav.is-fixed .navbar-nav > li.nav-item > a {
+    color: #fff;
+}
+
+.form-control {
+    background-color: rgb(74, 74, 74);
+    border: 1px solid #000000;
+    color: #fff;
+}
+
+.form-control:focus {
+  color: #fff;
+  background-color: rgb(74, 74, 74);
+}
+
+.form-floating label {
+  color: rgb(223, 223, 223);
+}

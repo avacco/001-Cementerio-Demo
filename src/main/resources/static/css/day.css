@@ -1,0 +1,56 @@
+body{
+    color: rgb(0, 0, 0);
+      background-color: #ffffff;
+  }
+  .post-preview > a {
+      color: rgb(0, 0, 0);
+  }
+  
+  a{
+    color: rgb(0, 0, 0);
+  }
+  .svg-inline--fa{
+    color: rgb(0, 0, 0);
+  }
+  .fa-behance{
+    color: rgb(255, 255, 255);
+  }
+  
+  .fa-linkedin{
+    color: rgb(255, 255, 255);
+  }
+  
+  .fa-github{
+    color: rgb(255, 255, 255);
+  }
+  
+  .text-muted{
+    color: #a8a8a8!important;
+  }
+  
+  #mainNav.is-visible{
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  #mainNav.is-fixed .navbar-brand{
+      color: rgb(0, 0, 0);
+  }
+  
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+      color: #000000;
+  }
+
+  .form-control {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    color: #000000;
+  }
+
+  .form-control:focus {
+    color: #000000;
+    background-color: #fff;
+  }
+
+  .form-floating label {
+    color: rgb(74, 74, 74);
+}
