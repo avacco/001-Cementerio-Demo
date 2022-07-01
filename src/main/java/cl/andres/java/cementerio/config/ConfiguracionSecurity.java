@@ -28,6 +28,7 @@ public class ConfiguracionSecurity {
 					.mvcMatchers("/contacto").permitAll()
 					.mvcMatchers("/obituario").permitAll()
 					.mvcMatchers("/noticias").permitAll()
+					.mvcMatchers("/listado").permitAll()
 					.anyRequest().authenticated()
 					
 			)

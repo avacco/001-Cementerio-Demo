@@ -23,6 +23,11 @@ public class AppController {
 		return "post";
 	}
 	
+	@GetMapping("/listado")
+	public String Listado() {
+		return "listado";
+	}
+	
 	// reemplazar
 	
 	@GetMapping("/mapa")
