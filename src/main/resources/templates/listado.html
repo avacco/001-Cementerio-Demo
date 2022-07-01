@@ -67,17 +67,14 @@
 							<div class="row pb-5 mb-4">
 							<!-- Desde esta separacion iniciar el do while -->
 							<!-- Cards -->
-								<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+								<div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-th-each="fallecido : ${fallecidos}">
 									<div class="card shadow-lg border-0 rounded bg-gradient">
 							        	<div class="card-body p-0"><img src="https://www.biografiasyvidas.com/biografia/b/fotos/bismarck.jpg" alt="" class="w-100 card-img-top">
 											<div class="p-4">
-												<h5 class="mb-0">NOMBRE</h5>
-												<p class="small">NACIMIENTO - DEFUNCION</p>
+												<h5 class="mb-0" data-th-text="${fallecido.nombre1}+' '+${fallecido.apellidoPat}"></h5>
+												<p class="small text-muted" data-th-text="${fallecido.fechaNacimiento}+' - '+${fallecido.fechaDefuncion}"></p>
 												<ul class="social mb-0 list-inline mt-3">
-													<li class="list-inline-item m-0"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-													<li class="list-inline-item m-0"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-													<li class="list-inline-item m-0"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-								                	<li class="list-inline-item m-0"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+												<div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Detalles</a></div>
 								             	</ul>
 								            </div>
 							          	</div>
