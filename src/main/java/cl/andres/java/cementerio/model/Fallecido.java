@@ -2,8 +2,9 @@ package cl.andres.java.cementerio.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,19 +13,21 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class Fallecido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long id;
+	private Long id;
 	
 	
 /* Testeo pendiente
@@ -41,9 +44,9 @@ public class Fallecido {
 	private LocalDateTime fechaEntierro;
 	private LocalDate fechaRelocalizacion;
 	
-	@OneToMany
-	private Set<ImagenFallecido> fotos;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<ImagenFallecido> fotos;
 	
-	@OneToMany
-	private Set<Condolencia> condolencias; 
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Condolencia> condolencias; 
 }

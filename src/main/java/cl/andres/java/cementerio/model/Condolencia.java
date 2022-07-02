@@ -1,5 +1,6 @@
 package cl.andres.java.cementerio.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +11,12 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -28,6 +32,6 @@ public class Condolencia {
 	@Column(columnDefinition = "TEXT")
 	private String cuerpo;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Fallecido fallecido;
 }

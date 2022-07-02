@@ -44,23 +44,15 @@
 		                    <h2 class="section-heading text-uppercase"><a class="text-decoration-none" data-th-href="@{/obituario}">Obituario</a></h2>
 		                    <h3 class="section-subheading text-muted">En honor a:</h3>
 		                </div>
+		                <!-- Muestra las 3 entradas mas recientes del obituario en la bd -->
 		                <div class="row text-center">
-		                    <div class="col-md-12 col-lg-4">
-								<img class="rounded-circle border border-5" width="300px" height="300px" src="assets/img/persona1.jpg">
-		                        <h4 class="my-3">Nombre 1</h4>
-		                        <p class="text-muted">XXXX - XXXX</p>
-		                    </div>
-		                    <div class="col-md-12 col-lg-4">
-								<img class="rounded-circle border border-5" width="300px" height="300px" src="assets/img/persona2.jpg">
-								<h4 class="my-3">Nombre 2</h4>
-		                        <p class="text-muted">XXXX - XXXX</p>
-		                    </div>
-		                    <div class="col-md-12 col-lg-4">
-							<img class="rounded-circle border border-5" width="300px" height="300px" src="assets/img/persona3.jpg">
-		                        <h4 class="my-3">Nombre 3</h4>
-		                        <p class="text-muted">XXXX - XXXX</p>
+		                    <div class="col-md-12 col-lg-4" data-th-each="fallecido : ${fallecidos}">
+								<img class="rounded-circle border border-5" width="300px" height="300px" data-th-src="@{/imgperfil/{id}(id=${fallecido.id})}">
+		                        <h4 class="my-3" data-th-text="${fallecido.nombre1}+' '+${fallecido.apellidoPat}"></h4>
+		                        <p class="text-muted" data-th-text="${fallecido.fechaNacimiento}+' - '+${fallecido.fechaDefuncion}"></p>
 		                    </div>
 		                </div>
+		                <!-- ---------------------------------------------------------------------- -->
 		            </div>
 		        </section>
 				<!-- Divisor-->
