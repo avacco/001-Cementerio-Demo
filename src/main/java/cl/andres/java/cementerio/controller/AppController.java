@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.andres.java.cementerio.model.Fallecido;
 import cl.andres.java.cementerio.model.ImagenFallecido;
@@ -63,6 +65,16 @@ public class AppController {
 		}
 		
 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
+	}
+	
+	
+	@RequestMapping("/buscar")
+	public String Buscar(Model modelo, @RequestParam String nombre) {
+		System.err.println(nombre);
+		List<Fallecido> fallecidos = fRepo.findByNombre(nombre);
+		modelo.addAttribute("fallecidos",fallecidos);
+		System.err.println(fallecidos);
+		return "listado";
 	}
 	
 	

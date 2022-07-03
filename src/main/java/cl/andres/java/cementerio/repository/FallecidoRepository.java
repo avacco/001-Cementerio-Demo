@@ -14,4 +14,7 @@ public interface FallecidoRepository extends JpaRepository<Fallecido, Long> {
 	@Query(value = "SELECT * FROM fallecido ORDER BY id DESC LIMIT 3", nativeQuery = true)
 	List<Fallecido> findLastThree();
 
+	@Query(value = "SELECT DISTINCT * FROM fallecido where nombre iLIKE ?1%", nativeQuery = true)
+	List<Fallecido> findByNombre(String nombre);
+
 }

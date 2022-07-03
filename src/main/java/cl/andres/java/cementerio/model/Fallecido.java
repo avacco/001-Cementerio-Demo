@@ -34,10 +34,7 @@ public class Fallecido {
 	@Pattern(regexp = "^(\\d{0,2})\\.?(\\d{3})\\.?(\\d{3})-?(\\d|k)$", message = "RUT invalido")
 */
 	private String rut;
-	private String nombre1;
-	private String nombre2;
-	private String apellidoPat;
-	private String apellidoMat;
+	private String nombre; // incluye nombres y apellidos
 	private String ubicacion;
 	private LocalDate fechaNacimiento;
 	private LocalDate fechaDefuncion;

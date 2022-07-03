@@ -41,15 +41,15 @@
 		        <section class="page-section" id="services">
 		            <div class="container">
 		                <div class="text-center">
-		                    <h2 class="section-heading text-uppercase"><a class="text-decoration-none" data-th-href="@{/obituario}">Obituario</a></h2>
+		                    <h2 class="section-heading text-uppercase"><a class="text-decoration-none"  data-th-href="@{/obituario}">Obituario</a></h2>
 		                    <h3 class="section-subheading text-muted">En honor a:</h3>
 		                </div>
 		                <!-- Muestra las 3 entradas mas recientes del obituario en la bd -->
 		                <div class="row text-center">
 		                    <div class="col-md-12 col-lg-4" data-th-each="fallecido : ${fallecidos}">
 								<img class="rounded-circle border border-5" width="300px" height="300px" data-th-src="@{/imgperfil/{id}(id=${fallecido.id})}">
-		                        <h4 class="my-3" data-th-text="${fallecido.nombre1}+' '+${fallecido.apellidoPat}"></h4>
-		                        <p class="text-muted" data-th-text="${fallecido.fechaNacimiento}+' - '+${fallecido.fechaDefuncion}"></p>
+		                        <h4 class="my-3" data-th-text="${fallecido.nombre}"></h4>
+		                        <p class="text-muted" data-th-text="${#temporals.format(fallecido.fechaNacimiento, 'yyyy')}+' - '+${#temporals.format(fallecido.fechaDefuncion, 'yyyy')}"></p>
 		                    </div>
 		                </div>
 		                <!-- ---------------------------------------------------------------------- -->

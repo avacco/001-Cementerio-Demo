@@ -48,13 +48,13 @@
                             <div class="container">
 					            <div class="row justify-content-center">
 					                <div class="col-12 col-md-10 col-lg-8">
-					                    <form class="card card-sm border-light shadow-lg">
+					                    <form class="card card-sm border-light shadow-lg" data-th-action="@{/buscar}" method="post">
 					                        <div class="card-body row no-gutters align-items-center">
 					                            <div class="col-auto">
 					                                <i class="fas fa-search h4 text-body"></i>
 					                            </div>
 					                            <div class="col">
-					                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Nombre">
+					                                <input class="form-control form-control-lg form-control-borderless" type="search" data-th-value="${nombre}" name="nombre"  placeholder="Nombre">
 					                            </div>
 					                            <div class="col-auto">
 					                                <button class="btn btn-lg btn-success" type="submit">Buscar</button>
@@ -68,10 +68,10 @@
 							<!-- Cards -->
 								<div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-th-each="fallecido : ${fallecidos}">
 									<div class="card shadow-lg border-0 rounded bg-gradient">
-							        	<div class="card-body p-0"><img data-th-src="@{/imgperfil/{id}(id=${fallecido.id})}" alt="imagenperfil" class="card-img-top">
+							        	<div class="card-body p-0 text-center"><img data-th-src="@{/imgperfil/{id}(id=${fallecido.id})}" alt="imagenperfil" class="card-img-top">
 											<div class="p-4">
-												<h5 class="mb-0" data-th-text="${fallecido.nombre1}+' '+${fallecido.apellidoPat}"></h5>
-												<p class="small text-muted" data-th-text="${fallecido.fechaNacimiento}+' - '+${fallecido.fechaDefuncion}"></p>
+												<h5 class="mb-0" data-th-text="${fallecido.nombre}"></h5>
+												<p class="text-muted" data-th-text="${#temporals.format(fallecido.fechaNacimiento, 'yyyy')}+' - '+${#temporals.format(fallecido.fechaDefuncion, 'yyyy')}"></p>
 												<ul class="social mb-0 list-inline mt-3">
 												<div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Detalles</a></div>
 								             	</ul>
@@ -80,6 +80,13 @@
 							        </div>
 								</div>
 						    </div>
+					    	<!-- Si no hay resultados -->
+							<div class="d-flex justify-content-center" data-th-if="${fallecidos.empty}">
+								<div class="container text-center my-5 py-5">
+									<img alt="empty" data-th-src="@{/assets/img/empty.png}" height="150" width="150"><br/>
+									<span> No se han encontrado resultados </span>
+								</div>
+							</div>
 						</div>
 					</div>
 		        </section>
