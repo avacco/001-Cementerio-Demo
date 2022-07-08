@@ -12,8 +12,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import cl.andres.java.cementerio.model.BlogPost;
 import cl.andres.java.cementerio.model.Fallecido;
 import cl.andres.java.cementerio.model.ImagenFallecido;
+import cl.andres.java.cementerio.repository.BlogPostRepository;
 import cl.andres.java.cementerio.repository.FallecidoRepository;
 
 @SpringBootApplication
@@ -25,7 +27,7 @@ public class CementerioMunicipalApplication {
 	
 	// Crea datos de ejemplo para demostraciones
 	@Bean
-	public CommandLineRunner datosEjemplo(FallecidoRepository fRepo) {
+	public CommandLineRunner datosEjemplo(FallecidoRepository fRepo, BlogPostRepository postRepo) {
 	return args ->{
 		if(fRepo.count() == 0) {
 			
@@ -127,6 +129,23 @@ public class CementerioMunicipalApplication {
 			fRepo.save(fallecido3);
 			fRepo.saveAndFlush(fallecido4);
 		}
+		if(postRepo.count() == 0) {
+			BlogPost post1 = BlogPost.builder()
+					.titulo("Primer post utilizando TinyMCE")
+					.subtitulo("Probando un editor de textos HTML para las noticias y tal vez los comentarios.")
+					.cuerpo("<h1>Primer post utilizando TinyMCE</h1>\n"
+							+ "<p>&nbsp;</p>\n"
+							+ "<p>He utilizado un editor HTML Open Source muy curioso y personalizable llamado <a href=\"https://www.tiny.cloud\">TinyMCE</a> para hacer este primer post. Espero implementarlo pronto para crear nuevas noticias y comentarios.</p>\n"
+							+ "<p>Lo siguiente en este post ser&aacute; un Lorem Ipsum com&uacute;n y corriente para seguir rellenando.</p>\n"
+							+ "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet mauris vel odio ultricies pharetra. Morbi elementum, dui quis tristique sagittis, nulla quam iaculis ante, id posuere orci purus ac sem.</p>\n"
+							+ "<p>Aenean sit amet nulla vel augue aliquet laoreet vel sit amet est. Integer ac vulputate sem, ut pellentesque nunc. Vestibulum placerat risus ex, vitae sodales mi euismod at. Sed varius, nunc vitae molestie rhoncus, massa leo pharetra ipsum, nec lobortis arcu erat a libero. Donec velit tortor, finibus ac massa in, facilisis auctor sem.</p>\n"
+							+ "<p>Curabitur eu lorem ac eros tristique semper et at metus. Sed lacinia ultricies leo vitae rhoncus. Vivamus accumsan pretium convallis.</p>")
+					.fechaModificacion(LocalDate.of(2022, 7, 8))
+					.fechaPublicacion(LocalDate.of(2022, 7, 8))
+					.build();
+			postRepo.saveAndFlush(post1);
+		}
+		
 	};
 	}
 

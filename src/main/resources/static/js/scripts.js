@@ -38,11 +38,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // controla el estilo de dia/noche
     document.getElementById('flexSwitchCheckDefault').onclick = function() {
         if (document.getElementById('theme').className == "night") {
-          document.getElementById('theme').href = "css/day.css";
+          document.getElementById('theme').href = "/css/day.css";
           document.getElementById('theme').className = "day";
           document.getElementById("flexSwitchCheckDefault").checked = false          
         } else {
-          document.getElementById('theme').href = "css/night.css";
+          document.getElementById('theme').href = "/css/night.css";
           document.getElementById('theme').className = "night";
           document.getElementById("flexSwitchCheckDefault").checked = true;
         }

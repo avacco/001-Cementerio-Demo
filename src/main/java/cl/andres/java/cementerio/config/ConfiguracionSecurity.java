@@ -26,8 +26,9 @@ public class ConfiguracionSecurity {
 					.mvcMatchers("/").permitAll()
 					.mvcMatchers("/mapa").permitAll()
 					.mvcMatchers("/contacto").permitAll()
-					.mvcMatchers("/obituario").permitAll()
 					.mvcMatchers("/noticias").permitAll()
+					.mvcMatchers("/post").permitAll()
+					.mvcMatchers("/obituario").permitAll()
 					.mvcMatchers("/listado").permitAll()
 					.mvcMatchers("/buscar").permitAll()
 					.anyRequest().authenticated()
@@ -48,7 +49,7 @@ public class ConfiguracionSecurity {
 	
 	@Bean
 	public WebSecurityCustomizer webSecurityCustomizer() { 
-		return (web) -> web.ignoring().antMatchers("/img/**","/imgperfil/**","/css/**","/js/**","/assets/**","/imagen/**");
+		return (web) -> web.ignoring().antMatchers("/img/**","/imgperfil/**","/css/**","/js/**","/assets/**","/imagen/**","/noticias/**");
 	}
 	
 }

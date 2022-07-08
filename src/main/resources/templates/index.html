@@ -64,27 +64,15 @@
 		            	<br>
 		             </div>
                     <!-- Vista previa de post -->
-                    <div class="post-preview">
-                        <a data-th-href="@{/noticias}" class="text-decoration-none">
-                            <h2 class="post-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                            <h3 class="post-subtitle">Nunc imperdiet mauris vel odio ultricies pharetra.</h3>
+                    <div class="post-preview" data-th-each="post : ${posts}">
+                        <a data-th-href="@{/noticias/{id}(id=${post.id})}" class="text-decoration-none">
+                            <h2 class="post-title" data-th-text="${post.titulo}"></h2>
+                            <h3 class="post-subtitle" data-th-text="${post.subtitulo}"></h3>
                         </a>
-                        <p class="post-meta">
-                            Septiembre 24, 2022
-                        </p>
+                        <p class="post-meta" data-th-text="'Publicado en '+${post.fechaPublicacion}+' por Administrador'"></p>
                     </div>
                     <!-- Divisor-->
                     <hr class="text-muted opacity-25" />
-					<!-- Vista previa de post -->
-                    <div class="post-preview">
-                        <a data-th-href="@{/noticias}" class="text-decoration-none">
-                            <h2 class="post-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                            <h3 class="post-subtitle">Nunc imperdiet mauris vel odio ultricies pharetra.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Septiembre 24, 2022
-                        </p>
-                    </div>
                     <!-- Boton -->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Otras noticias →</a></div>                    
                 </div>

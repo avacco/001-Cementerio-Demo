@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import cl.andres.java.cementerio.model.BlogPost;
 import cl.andres.java.cementerio.model.Fallecido;
 import cl.andres.java.cementerio.model.ImagenFallecido;
+import cl.andres.java.cementerio.repository.BlogPostRepository;
 import cl.andres.java.cementerio.repository.FallecidoRepository;
 import cl.andres.java.cementerio.repository.ImagenFallecidoRepository;
 
@@ -31,11 +33,16 @@ public class AppController {
 	@Autowired
 	ImagenFallecidoRepository ifRepo;
 
+	@Autowired
+	BlogPostRepository postRepo;
+	
 	@GetMapping("/")
-	public String Index(Fallecido fallecido, Model modelo) {
-		// Trae los ultimos 3 registros del obituario
+	public String Index(Fallecido fallecido, BlogPost blogPost, Model modelo) {
+		// Trae los ultimos 3 registros del obituario y de las noticias
 		List<Fallecido> fallecidos = fRepo.findLastThree();
+		List<BlogPost> posts = postRepo.findAll(); // TODO: cambiar a LastThree tambien
 		modelo.addAttribute("fallecidos",fallecidos);
+		modelo.addAttribute("posts",posts);
 		return "index";
 	}
 	
@@ -70,15 +77,24 @@ public class AppController {
 	
 	@RequestMapping("/buscar")
 	public String Buscar(Model modelo, @RequestParam String nombre) {
-		System.err.println(nombre);
 		List<Fallecido> fallecidos = fRepo.findByNombre(nombre);
 		modelo.addAttribute("fallecidos",fallecidos);
 		System.err.println(fallecidos);
 		return "listado";
 	}
 	
+	@GetMapping("/noticias/{id}")
+	public String getNoticia(@PathVariable("id") Long id, Model modelo, BlogPost blogPost) {
+		Optional<BlogPost> post = postRepo.findById(id);
+		if(post.isPresent()) {
+			modelo.addAttribute("post",post.get());
+			return "post";
+		}
+		return "redirect:/";
+	}
 	
-	// reemplazar
+	
+	// TODO: Investigar sobre mapas y coordenadas
 	
 	@GetMapping("/mapa")
 	public String Mapa() {
