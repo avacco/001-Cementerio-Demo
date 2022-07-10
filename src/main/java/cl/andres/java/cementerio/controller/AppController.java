@@ -40,7 +40,7 @@ public class AppController {
 	public String Index(Fallecido fallecido, BlogPost blogPost, Model modelo) {
 		// Trae los ultimos 3 registros del obituario y de las noticias
 		List<Fallecido> fallecidos = fRepo.findLastThree();
-		List<BlogPost> posts = postRepo.findAll(); // TODO: cambiar a LastThree tambien
+		List<BlogPost> posts = postRepo.findLastThree(); // TODO: cambiar a LastThree tambien
 		modelo.addAttribute("fallecidos",fallecidos);
 		modelo.addAttribute("posts",posts);
 		return "index";
