@@ -53,7 +53,7 @@ public class AppController {
 	
 	@GetMapping("/noticias")
 	public String Noticia() {
-		return "post";
+		return "noticias";
 	}
 	
 	@GetMapping("/obituario")
@@ -90,7 +90,7 @@ public class AppController {
 			modelo.addAttribute("post",post.get());
 			return "post";
 		}
-		return "redirect:/";
+		return "redirect:/"; // Redirecciona a la raiz si no encuentra el post pedido
 	}
 	
 	
