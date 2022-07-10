@@ -52,7 +52,9 @@ public class AppController {
 	}
 	
 	@GetMapping("/noticias")
-	public String Noticia() {
+	public String Noticia(BlogPost blogPost, Model modelo) {
+		List<BlogPost> posts = postRepo.findAll();
+		modelo.addAttribute("posts",posts);
 		return "noticias";
 	}
 	
