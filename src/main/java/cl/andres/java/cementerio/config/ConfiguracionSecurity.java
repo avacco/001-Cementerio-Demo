@@ -31,16 +31,17 @@ public class ConfiguracionSecurity {
 					.mvcMatchers("/obituario").permitAll()
 					.mvcMatchers("/listado").permitAll()
 					.mvcMatchers("/buscar").permitAll()
+					.mvcMatchers("/admin/index").hasAuthority("ADMINISTRADOR")
 					.anyRequest().authenticated()
 					
 			)
 			.formLogin(form -> form
-						.loginPage("/login")
-						.defaultSuccessUrl("/",true)
+						.loginPage("/admin/login")
+						.defaultSuccessUrl("/admin/index",true)
 						.permitAll()
 			)
 			.logout(logout -> logout
-						.logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
+						.logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET")).logoutSuccessUrl("/")
 					
 			)
 		;

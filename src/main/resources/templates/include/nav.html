@@ -18,6 +18,8 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" data-th-href="@{/mapa}">Mapa</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" data-th-href="@{/obituario}">Obituario</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" data-th-href="@{/contacto}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" data-th-href="@{/admin/index}" data-sec-authorize="hasAuthority('ADMINISTRADOR')">Administracion</a></li>                        
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" data-th-href="@{/logout}" data-sec-authorize="hasAuthority('ADMINISTRADOR')">Salir</a></li>                        
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4">Modo oscuro</a></li>
                         <div class="form-check form-switch" style="margin: 20px 20px 20px 0px;">
 						  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="lightsout()">

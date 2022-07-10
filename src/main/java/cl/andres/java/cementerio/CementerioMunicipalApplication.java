@@ -12,11 +12,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import cl.andres.java.cementerio.model.Administrador;
 import cl.andres.java.cementerio.model.BlogPost;
 import cl.andres.java.cementerio.model.Fallecido;
 import cl.andres.java.cementerio.model.ImagenFallecido;
 import cl.andres.java.cementerio.repository.BlogPostRepository;
 import cl.andres.java.cementerio.repository.FallecidoRepository;
+import cl.andres.java.cementerio.service.AdministradorService;
 
 @SpringBootApplication
 public class CementerioMunicipalApplication {
@@ -27,7 +29,7 @@ public class CementerioMunicipalApplication {
 	
 	// Crea datos de ejemplo para demostraciones
 	@Bean
-	public CommandLineRunner datosEjemplo(FallecidoRepository fRepo, BlogPostRepository postRepo) {
+	public CommandLineRunner datosEjemplo(FallecidoRepository fRepo, BlogPostRepository postRepo, AdministradorService adminService) {
 	return args ->{
 		if(fRepo.count() == 0) {
 			
@@ -144,6 +146,14 @@ public class CementerioMunicipalApplication {
 					.fechaPublicacion(LocalDate.of(2022, 7, 8))
 					.build();
 			postRepo.saveAndFlush(post1);
+		}
+		if(adminService.contarAdmin() == 0) {
+			Administrador admin = Administrador.builder()
+					.username("admin")
+					.password("123")
+					.build()
+					;
+			adminService.crearAdmin(admin);
 		}
 		
 	};
