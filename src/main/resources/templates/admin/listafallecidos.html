@@ -32,30 +32,45 @@
                 </div>
             </div>
         </header>
-        <!-- Contenido principal -->
-        <div class="container  px-4 px-lg-5">
+        <!-- Lista de fallecidos -->
+        <div class="container  px-4 px-lg-5 table-responsive">
             <div class="row gx-4 gx-lg-5 justify-content-center text-center">
-            <h3 class="section-heading text-uppercase">Panel de administración</h3>
+            <h3 class="section-heading text-uppercase">Lista de fallecidos</h3>
             <hr class="text-muted opacity-25" />
-        		<div class="col-lg-3 col-md-4 col-sm-6 text-center">
-		        	<a class="btn btn-primary" style="--bs-btn-padding-y: 2.20rem; --bs-btn-padding-x: 1.25rem; --bs-btn-font-size: 1.75rem;" data-th-href="@{/admin/nuevanoticia}">PUBLICAR NOTICIA</a>
-		        	<br><br>
-		        </div>
-        		<div class="col-lg-3 col-md-4 col-sm-6 text-center">
-		        	<a class="btn btn-primary" style="--bs-btn-padding-y: 2.20rem; --bs-btn-padding-x: 1.25rem; --bs-btn-font-size: 1.75rem;" data-th-href="@{/admin/listanoticias}">LISTA DE NOTICIAS</a>
-		        	<br><br>
-		        </div>
-        		<div class="col-lg-3 col-md-4 col-sm-6 text-center">
-		        	<a class="btn btn-primary" style="--bs-btn-padding-y: 2.20rem; --bs-btn-padding-x: 1.25rem; --bs-btn-font-size: 1.75rem;" data-th-href="@{/admin/registrarfallecido}">REGISTRAR FALLECIDO</a>
-		        	<br><br>
-		        </div>
-        		<div class="col-lg-3 col-md-4 col-sm-6 text-center">
-		        	<a class="btn btn-primary" style="--bs-btn-padding-y: 2.20rem; --bs-btn-padding-x: 1.25rem; --bs-btn-font-size: 1.75rem;" data-th-href="@{/admin/listafallecidos}">LISTA DE FALLECIDOS</a>
-		        	<br><br>
-		        </div>
+		  	<table id="sortTable" class="table table-striped-columns table-hover table-bordered">
+		
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>	
+					<th>Ubicacion</th>
+					<th>Nacimiento</th>
+					<th>Defuncion</th>
+					<th>Entierro</th>
+					<th>Relocalización</th>
+					<th>Acciones</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<tr  data-th-each="fallecido : ${fallecidos}">
+					<td data-th-text="${fallecido.id}"></td>
+					<td data-th-text="${fallecido.nombre}"></td>
+					<td data-th-text="${fallecido.ubicacion}"></td>
+					<td data-th-text="${fallecido.fechaNacimiento}"></td>
+					<td data-th-text="${fallecido.fechaDefuncion}"></td>
+					<td data-th-text="${fallecido.fechaEntierro}"></td>
+					<td data-th-text="${fallecido.fechaRelocalizacion}"></td>
+					<td>
+						<a class="btn btn-warning mt-2" data-th-href="@{/admin/editar/{fallecidoId}(fallecidoId=${fallecido.id})}">Editar</a>
+						<a class="btn btn-danger mt-2" data-th-href="@{/admin/eliminar(id=${fallecido.id})}">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+			</table>
 	           <!-- Divisor-->
 	           <hr class="text-muted opacity-25" />
             </div>
+            <a class="btn btn-primary btn-lg" data-th-href="@{/admin/index}">Volver</a><br><br>
         </div>
         <!-- Pie de pagina -->
         <footer data-th-replace="include/footer :: footer"></footer>
@@ -64,6 +79,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
-        
+        <!-- Table sort y dependencias -->
+        <div data-th-replace="include/tablesort :: tablesort"></div>
     </body>
 </html>

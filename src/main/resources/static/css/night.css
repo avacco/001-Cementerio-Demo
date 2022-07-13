@@ -92,6 +92,12 @@ a{
   color: #fff;
 }
 
+.form-select {
+background-color: #4a4a4a;
+color: #fff;
+border-color: #000000;
+}
+
 @media (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;

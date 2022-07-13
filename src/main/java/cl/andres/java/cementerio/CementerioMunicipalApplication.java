@@ -89,7 +89,7 @@ public class CementerioMunicipalApplication {
 					.rut("8.531.883-K")
 					.nombre("Marta Carina Villarroel Araya")
 					.fechaNacimiento(LocalDate.of(1967, 9, 14))
-					.fechaDefuncion(LocalDate.of(2021, 9, 30))
+					.fechaDefuncion(LocalDate.of(2022, 9, 30))
 					.fechaEntierro(LocalDateTime.of(2021, 10, 2, 13, 00))
 					.fechaRelocalizacion(null)
 					.ubicacion("No disponible")

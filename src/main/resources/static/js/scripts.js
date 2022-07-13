@@ -2,13 +2,23 @@
 applyStyleSheet();
 
 function applyStyleSheet() {
+    let tableStyle = document.getElementById("sortTable"); // TODO: investigar como reducir la redundancia de este codigo
     document.getElementById('theme').href = localStorage.getItem('csshref');
     document.getElementById('theme').className = localStorage.getItem('cssclass');
     // control del switch
     if (document.getElementById('theme').className == "night") {
         document.getElementById("flexSwitchCheckDefault").checked = true;
+        if (tableStyle != null) {
+            tableStyle.classList.add("table-dark");
+            tableStyle.classList.remove("table-light");
+        }
+
     }else{
         document.getElementById("flexSwitchCheckDefault").checked = false;
+        if (tableStyle != null) {
+            tableStyle.classList.add("table-light");
+            tableStyle.classList.remove("table-dark");
+        }
     }
 }
 
@@ -37,14 +47,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // controla el estilo de dia/noche
     document.getElementById('flexSwitchCheckDefault').onclick = function() {
+        let tableStyle = document.getElementById("sortTable"); // para las table
         if (document.getElementById('theme').className == "night") {
           document.getElementById('theme').href = location.protocol+'//'+location.host.slice(0,location.href.lastIndexOf("/"))+"/css/day.css";
           document.getElementById('theme').className = "day";
-          document.getElementById("flexSwitchCheckDefault").checked = false          
+          document.getElementById("flexSwitchCheckDefault").checked = false
+          if (tableStyle != null) {
+            tableStyle.classList.add("table-light");
+            tableStyle.classList.remove("table-dark");
+          }          
         } else {
           document.getElementById('theme').href = location.protocol+"//"+location.host.slice(0,location.href.lastIndexOf("/"))+"/css/night.css";
           document.getElementById('theme').className = "night";
           document.getElementById("flexSwitchCheckDefault").checked = true;
+          if (tableStyle != null) {
+            tableStyle.classList.add("table-dark");
+            tableStyle.classList.remove("table-light");
+          }
         }
         localStorage.setItem('csshref', document.getElementById('theme').href);
         localStorage.setItem('cssclass', document.getElementById('theme').className);
