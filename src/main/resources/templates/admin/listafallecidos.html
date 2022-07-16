@@ -61,8 +61,8 @@
 					<td data-th-text="${fallecido.fechaEntierro}"></td>
 					<td data-th-text="${fallecido.fechaRelocalizacion}"></td>
 					<td>
-						<a class="btn btn-warning mt-2" data-th-href="@{/admin/editar/{fallecidoId}(fallecidoId=${fallecido.id})}">Editar</a>
-						<a class="btn btn-danger mt-2" data-th-href="@{/admin/eliminar(id=${fallecido.id})}">Eliminar</a>
+						<a class="btn btn-warning mt-2" data-th-href="@{/admin/editarFallecido/{fallecidoId}(fallecidoId=${fallecido.id})}">Editar</a>
+						<a class="btn btn-danger mt-2" data-th-href="@{/admin/eliminarFallecido/{fallecidoId}(fallecidoId=${fallecido.id})}">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>

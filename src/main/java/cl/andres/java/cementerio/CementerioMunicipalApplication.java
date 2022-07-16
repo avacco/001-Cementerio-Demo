@@ -41,6 +41,7 @@ public class CementerioMunicipalApplication {
 			
 			// Crea un perfil de ejemplo
 			Fallecido fallecido1 = Fallecido.builder()
+					.imagen(Files.readAllBytes(Paths.get("src/main/resources/static/assets/img/persona2.jpg")))
 					.rut("12.345.678-9")
 					.nombre("Beatriz Carolina Fuentes Ojeda")
 					.fechaNacimiento(LocalDate.of(1971, 3, 30))
@@ -66,6 +67,7 @@ public class CementerioMunicipalApplication {
 			
 			// Repite el proceso
 			Fallecido fallecido2 = Fallecido.builder()
+					.imagen(Files.readAllBytes(Paths.get("src/main/resources/static/assets/img/persona1.jpg")))
 					.rut("9.876.543-2")
 					.nombre("Carlos Fabian Contreras Barría")
 					.fechaNacimiento(LocalDate.of(1969, 3, 24))
@@ -86,6 +88,7 @@ public class CementerioMunicipalApplication {
 			
 			// Repite el proceso
 			Fallecido fallecido3 = Fallecido.builder()
+					.imagen(Files.readAllBytes(Paths.get("src/main/resources/static/assets/img/persona3.jpg")))
 					.rut("8.531.883-K")
 					.nombre("Marta Carina Villarroel Araya")
 					.fechaNacimiento(LocalDate.of(1967, 9, 14))
@@ -106,6 +109,7 @@ public class CementerioMunicipalApplication {
 			
 			// Repite el proceso
 			Fallecido fallecido4 = Fallecido.builder()
+					.imagen(Files.readAllBytes(Paths.get("src/main/resources/static/assets/img/persona4.jpg")))
 					.rut("7.972.123-3")
 					.nombre("Pedro Pablo Hurtado Sanhueza")
 					.fechaNacimiento(LocalDate.of(1957, 6, 11))

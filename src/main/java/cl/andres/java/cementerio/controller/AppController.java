@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.andres.java.cementerio.model.BlogPost;
 import cl.andres.java.cementerio.model.Fallecido;
-import cl.andres.java.cementerio.model.ImagenFallecido;
 import cl.andres.java.cementerio.repository.BlogPostRepository;
 import cl.andres.java.cementerio.repository.FallecidoRepository;
 import cl.andres.java.cementerio.repository.ImagenFallecidoRepository;
@@ -66,7 +65,7 @@ public class AppController {
 	
 	@GetMapping("/imgperfil/{id}")
 	public ResponseEntity<byte[]> imagenPerfl(@PathVariable("id") Long id) throws SQLException, IOException {
-		Optional<ImagenFallecido> imgfallecido = ifRepo.findByOtherId(id);
+		Optional<Fallecido> imgfallecido = fRepo.findById(id);
 		byte[] imageBytes = null;
 		if(imgfallecido.isPresent()) {
 			imageBytes = imgfallecido.get().getImagen();

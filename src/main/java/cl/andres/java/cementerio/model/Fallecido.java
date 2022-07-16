@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,10 +38,16 @@ public class Fallecido {
 	private String rut;
 	private String nombre; // incluye nombres y apellidos
 	private String ubicacion;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaNacimiento;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaDefuncion;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime fechaEntierro;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaRelocalizacion;
+	
+	private byte[] imagen;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ImagenFallecido> fotos;
