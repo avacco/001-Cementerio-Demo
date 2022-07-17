@@ -70,14 +70,26 @@ public class AdminController {
 		return "admin/listafallecidos";
 	}
 	
-	@GetMapping("/registrarfallecido")
-	public String registrarFallecido(Fallecido fallecido) {
-		return "admin/registrarfallecido";
-	}
-	
 	@GetMapping("/nuevanoticia")
 	public String nuevaNoticia() {
 		return "admin/nuevanoticia";
+	}
+	
+	@GetMapping("/editarNoticia/{noticiaId}")
+	public String editarNoticia(@PathVariable(name = "noticiaId") BlogPost noticia, Model modelo) {
+		modelo.addAttribute("noticia",noticia);
+		return "admin/nuevanoticia";
+	}
+	
+	@GetMapping("/eliminarNoticia/{noticiaId}")
+	public String eliminarNoticia(@PathVariable(name = "noticiaId") Long id) {
+		bpRepo.deleteById(id);
+		return "redirect:/admin/index";
+	}
+	
+	@GetMapping("/registrarfallecido")
+	public String registrarFallecido(Fallecido fallecido) {
+		return "admin/registrarfallecido";
 	}
 	
 	@GetMapping("/editarFallecido/{fallecidoId}")

@@ -51,10 +51,16 @@
                         </a>
                         <p class="post-meta" data-th-text="'Publicado en '+${post.fechaPublicacion}+' por Administrador'"></p>
                     </div>
+			    	<!-- Si no hay resultados -->
+					<div class="d-flex justify-content-center" data-th-if="${posts.empty}">
+						<div class="container text-center my-5 py-5">
+							<img alt="empty" data-th-src="@{/assets/img/empty.png}" height="150" width="150"><br/>
+							<span> No se han encontrado noticias </span><br><br>
+							<a class="btn btn-primary btn-lg" data-th-href="@{/}">Volver al indíce</a>
+						</div>
+					</div>                    
                     <!-- Divisor-->
                     <hr class="text-muted opacity-25" />
-                    <!-- Boton -->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Otras noticias →</a></div>                    
                 </div>
             <!-- Divisor-->
             <hr class="text-muted opacity-25" />

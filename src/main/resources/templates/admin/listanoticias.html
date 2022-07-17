@@ -35,7 +35,7 @@
         <!-- Lista de fallecidos -->
         <div class="container  px-4 px-lg-5 table-responsive">
             <div class="row gx-4 gx-lg-5 justify-content-center text-center">
-            <h3 class="section-heading text-uppercase">Lista de fallecidos</h3>
+            <h3 class="section-heading text-uppercase">Listado de noticias</h3>
             <hr class="text-muted opacity-25" />
 		  	<table id="sortTable" class="table table-striped-columns table-hover table-bordered">
 		
@@ -60,7 +60,7 @@
 					<td data-th-text="${noticia.fechaModificacion}"></td>
 					<td>
 						<a class="btn btn-warning mt-2" data-th-href="@{/admin/editarNoticia/{noticiaId}(noticiaId=${noticia.id})}">Editar</a>
-						<a class="btn btn-danger mt-2" data-th-href="@{/admin/eliminarNoticia(id=${noticia.id})}">Eliminar</a>
+						<a class="btn btn-danger mt-2" data-th-href="@{/admin/eliminarNoticia/{noticiaId}(noticiaId=${noticia.id})}">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
