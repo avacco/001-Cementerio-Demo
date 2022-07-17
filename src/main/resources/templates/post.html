@@ -19,7 +19,7 @@
     <body class="bg-gradient">
         <!-- Navegacion-->
         <nav data-th-replace="include/nav :: nav"></nav>
-        <!-- Page Header-->
+        <!-- Cabezal -->
         <header class="masthead" style="background-image: url('/assets/img/post-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -33,15 +33,17 @@
                 </div>
             </div>
         </header>
-        <!-- Post Content-->
+        <!-- Contenido principal -->
         <article class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7" data-th-utext="${post.cuerpo}">
-
-                    </div>
+                    <div class="col-md-10 col-lg-8 col-xl-7" data-th-utext="${post.cuerpo}"></div>
                 </div>
             </div>
+        <!-- Boton -->
+        <div class="container px-4 px-lg-5">
+			<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Otras noticias →</a></div>
+        </div>
         </article>
         <!-- Pie de pagina -->
         <footer data-th-replace="include/footer :: footer"></footer>

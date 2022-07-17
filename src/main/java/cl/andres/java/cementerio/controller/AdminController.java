@@ -71,13 +71,24 @@ public class AdminController {
 	}
 	
 	@GetMapping("/nuevanoticia")
-	public String nuevaNoticia() {
+	public String nuevaNoticia(BlogPost blogPost) {
 		return "admin/nuevanoticia";
 	}
 	
+	@PostMapping("/nuevanoticia")
+	public String procesarNoticia(Model modelo, BlogPost blogPost) {
+		if(blogPost.getId() == null) {
+			blogPost.setFechaPublicacion(LocalDate.now());			
+		}
+		blogPost.setFechaModificacion(LocalDate.now());
+		bpRepo.saveAndFlush(blogPost);
+		return "redirect:/admin/index";
+	}
+	
+	
 	@GetMapping("/editarNoticia/{noticiaId}")
-	public String editarNoticia(@PathVariable(name = "noticiaId") BlogPost noticia, Model modelo) {
-		modelo.addAttribute("noticia",noticia);
+	public String editarNoticia(@PathVariable(name = "noticiaId") BlogPost blogPost, Model modelo) {
+		modelo.addAttribute("blogPost",blogPost);
 		return "admin/nuevanoticia";
 	}
 	
