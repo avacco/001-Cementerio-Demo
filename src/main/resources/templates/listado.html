@@ -7,6 +7,9 @@
         <meta name="author" content="Andres Vargas" />
         <title>Cementerio Municipal</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+		<!-- jQuery para control de modals -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,6 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
 		<link href="css/styles.css" rel="stylesheet" />
 		<link id="theme" class="day" href="css/day.css" rel="stylesheet" />
+		
     </head>
     <body class="bg-gradient">
         <!-- Navegacion-->
@@ -66,20 +70,23 @@
 					        </div><br><br>
 							<div class="row pb-5 mb-4">
 							<!-- Cards -->
-								<div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-th-each="fallecido : ${fallecidos}">
+								<div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-th-each="fallecido, status : ${fallecidos}">
 									<div class="card shadow-lg border-0 rounded bg-gradient">
 							        	<div class="card-body p-0 text-center"><img data-th-src="@{/imgperfil/{id}(id=${fallecido.id})}" alt="imagenperfil" class="card-img-top">
 											<div class="p-4">
 												<h5 class="mb-0" data-th-text="${fallecido.nombre}"></h5>
 												<p class="text-muted" data-th-text="${#temporals.format(fallecido.fechaNacimiento, 'yyyy')}+' - '+${#temporals.format(fallecido.fechaDefuncion, 'yyyy')}"></p>
 												<ul class="social mb-0 list-inline mt-3">
-												<div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" data-th-href="@{/noticias}">Detalles</a></div>
+												<!-- Boton Modals -->
+												<div class="d-flex justify-content-center mb-4"><button type="button" class="btn btn-primary text-uppercase" data-bs-toggle="modal" data-th-onClick="'javascript:openFallecidoModal(\''+ ${fallecido.id} + '\');'">Detalles</button></div>
 								             	</ul>
 								            </div>
 							          	</div>
 							        </div>
-								</div>
+								</div>    
 						    </div>
+						    <!-- Modals -->
+						    <div id="fallecidoModalHolder"></div> 
 					    	<!-- Si no hay resultados -->
 							<div class="d-flex justify-content-center" data-th-if="${fallecidos.empty}">
 								<div class="container text-center my-5 py-5">
@@ -101,6 +108,28 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        <!-- Control de Modals -->
+        <script>
+        
+	        function openFallecidoModal(id){
+	            $.ajax({
+	                url: "/fallecido/modal/" + id,
+	                success: function(data){
+	                    $("#fallecidoModalHolder").html(data);
+	                    $("#fallecidoModal").modal("show");
+	                }
+	            });
+	        }
+	        
+	        // Previene que un error de bootstrap modals aparezca. El error en cuestion no afecta en nada al funcionamiento de la pagina.
+	        window.onerror = stoperror;
+	        
+	        function stoperror() {
+	        	   return true;
+	        	}
+        
+        </script>
         
     </body>
 </html>
